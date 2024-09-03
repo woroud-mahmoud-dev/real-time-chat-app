@@ -1,13 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
+import '../../data/models/user_model.dart';
+
 @immutable
 class UserReponse extends Equatable {
   final bool isSuccess;
   final String message;
   final String accessToken;
   final int? status;
-  final UserEntity user;
+  final UserModel user;
   const UserReponse(
       {required this.status,
       required this.isSuccess,
