@@ -4,28 +4,27 @@ class UserResponseModel extends UserReponse {
   const UserResponseModel(
       {required super.status,
       required super.isSuccess,
-      required UserModel user, // Change here
+      required super.user, // Change here
       required super.accessToken,
-      required super.message})
-      : super(user: user);
+      required super.message});
 
   factory UserResponseModel.fromJson(Map<String, dynamic> json) {
     return UserResponseModel(
         status: json["status"],
         isSuccess: json["isSuccess"],
         accessToken: json["accessToken"],
-        user: UserModel.fromJson(json["user"] as Map<String, dynamic>),
+        user: json["data"] != null ? UserModel.fromJson(json["data"]) : null,
         message: json["message"]);
   }
-  Map<String, dynamic> toJson() {
-    return {
-      "status": status,
-      "isSuccess": isSuccess,
-      "user": user.toJson(),
-      "accessToken": accessToken,
-      "message": message,
-    };
-  }
+  // Map<String, dynamic> toJson() {
+  //   return {
+  //     "status": status,
+  //     "isSuccess": isSuccess,
+  //     "user": user!.toJson(),
+  //     "accessToken": accessToken,
+  //     "message": message,
+  //   };
+  // }
 }
 
 class UserModel extends UserEntity {

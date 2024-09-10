@@ -11,4 +11,6 @@ abstract class AuthRepo {
       RegisterRequestBody requestBody);
   Future<Either<Failure, UserReponse>> loginUser(
       LoginRequestBody loginRequestBody);
+  Future<Either<Failure, Unit>> activeUserAccount(String code);
+  Future<Either<Failure, Unit>> resendActiveCode();
 }

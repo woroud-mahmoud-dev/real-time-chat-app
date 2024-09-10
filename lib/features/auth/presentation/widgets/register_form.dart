@@ -1,40 +1,38 @@
-import 'package:chaty/features/auth/presentation/signup/widgets/custom_text_field.dart';
+import 'package:chaty/features/auth/presentation/bloc/cubit/register_cubit.dart';
+import 'package:chaty/features/auth/presentation/pages/verify_account.dart';
+import 'package:chaty/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
 
-import '../../../../../core/utils/utils.dart';
-import '../../signup/widgets/custom_button.dart';
+import '../widgets/custom_button.dart';
+import 'register_listener.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class RegisterForm extends StatelessWidget {
+  RegisterForm({super.key});
   final TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 86, 238, 225),
-        title: Text(
-          'Register',
-          style: AppStyle.style20Bold,
-        ),
-      ),
-      body: SafeArea(
-          child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-              Color.fromARGB(255, 117, 240, 230),
-              Color.fromARGB(255, 54, 213, 200),
-              Color.fromARGB(255, 51, 241, 225),
-              Color.fromARGB(255, 73, 188, 255),
-              AppColors.blueGreenMain,
-            ])),
-        width: double.infinity,
-        child: Column(
+    return BlocConsumer<RegisterCubit, RegisterState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: () {
+            EasyLoading.show(status: 'Loading ...', dismissOnTap: false);
+          },
+          success: () {
+            EasyLoading.dismiss();
+            Get.offAll(const VerifyScreen());
+          },
+          error: (error) {
+            EasyLoading.showError(error);
+          },
+        );
+      },
+      builder: (context, state) {
+        return Column(
           children: [
             const Center(
               child: Icon(
@@ -50,7 +48,7 @@ class LoginScreen extends StatelessWidget {
               height: 10.h,
             ),
             CustomTextField(
-              controller: controller,
+              controller: context.read<RegisterCubit>().nameController,
               validator: (value) {
                 if (value == null || value.toString().isEmpty) {
                   return "required";
@@ -62,7 +60,7 @@ class LoginScreen extends StatelessWidget {
               textInputType: TextInputType.text,
             ),
             CustomTextField(
-              controller: controller,
+              controller: context.read<RegisterCubit>().phoneController,
               validator: (value) {
                 if (value == null || value.toString().isEmpty) {
                   return "required";
@@ -77,7 +75,7 @@ class LoginScreen extends StatelessWidget {
               height: 10.h,
             ),
             CustomTextField(
-              controller: controller,
+              controller: context.read<RegisterCubit>().emailController,
               validator: (value) {
                 if (value == null || value.toString().isEmpty) {
                   return "required";
@@ -92,7 +90,7 @@ class LoginScreen extends StatelessWidget {
               height: 10.h,
             ),
             CustomTextField(
-              controller: controller,
+              controller: context.read<RegisterCubit>().passwordController,
               validator: (value) {
                 if (value == null || value.toString().isEmpty) {
                   return "required";
@@ -106,14 +104,17 @@ class LoginScreen extends StatelessWidget {
             SizedBox(
               height: 50.h,
             ),
+            const RegisterListener(),
             CustomButton(
-              title: 'login'.toUpperCase(),
+              title: 'register'.toUpperCase(),
               textColor: const Color.fromARGB(255, 35, 128, 168),
-              onTapped: () {},
+              onTapped: () {
+                context.read<RegisterCubit>().resgiterNewUser();
+              },
             ),
           ],
-        ),
-      )),
+        );
+      },
     );
   }
 }

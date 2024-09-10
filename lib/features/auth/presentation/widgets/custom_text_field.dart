@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/utils/utils.dart';
+import '../../../../core/utils/utils.dart';
 
 class CustomTextField extends StatelessWidget {
   final String? hint;
@@ -91,7 +91,7 @@ class CustomTextField extends StatelessWidget {
                         fontWeight: FontWeight.w300,
                         fontSize: 12.sp,
                         height: 0),
-                    fillColor: Color.fromARGB(255, 199, 252, 252),
+                    fillColor: Color.fromRGBO(219, 221, 221, 1),
                     enabledBorder: InputBorders.enabled,
                     errorBorder: InputBorders.error,
                     focusedErrorBorder: InputBorders.error,

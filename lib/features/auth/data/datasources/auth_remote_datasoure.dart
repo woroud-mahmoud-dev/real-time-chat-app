@@ -1,6 +1,7 @@
 import 'package:chaty/core/services/network/api_constant.dart';
 import 'package:chaty/features/auth/domain/entities/login_request_body.dart';
 import 'package:chaty/features/auth/domain/entities/register_request_body.dart';
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../core/error/execption.dart';
@@ -8,11 +9,16 @@ import '../models/user_model.dart';
 
 abstract class AuthRemoteDataSource {
   Future<UserResponseModel> register(RegisterRequestBody requestBody);
-  Future<UserResponseModel> login(LoginRequestBody requestBody);
+  Future<UserResponseModel?> login(LoginRequestBody requestBody);
+  Future<Unit> activeUserAccount(String code);
+  Future<Unit> resendActiveCode();
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
-  final dio = Dio();
+  final Dio dio;
+
+  AuthRemoteDataSourceImpl({required this.dio});
+
   @override
   Future<UserResponseModel> register(RegisterRequestBody requestBody) async {
     try {
@@ -38,11 +44,48 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       final response = await dio.post(
           ApiConstants.apiBaseUrl + ApiConstants.login,
           data: requestBody.toJson());
+      final data = response.data;
+
+      final userModel = UserResponseModel.fromJson(data);
+      if (userModel.status == 422) {
+        throw NotVerifedEexeption();
+      } else if (userModel.status == 200) {
+        return userModel;
+      } else {
+        throw ServerException();
+      }
+    } catch (e) {
+      print(e);
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<Unit> activeUserAccount(String code) async {
+    try {
+      final response = await dio.post(
+          ApiConstants.apiBaseUrl + ApiConstants.activeAccount,
+          data: {"code": code});
 
       if (response.statusCode == 200) {
-        final data = response.data;
-        final userModel = UserResponseModel.fromJson(data);
-        return userModel;
+        return unit;
+      } else {
+        throw ServerException();
+      }
+    } catch (e) {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<Unit> resendActiveCode() async {
+    try {
+      final response = await dio.post(
+        ApiConstants.apiBaseUrl + ApiConstants.resendActiveCode,
+      );
+
+      if (response.statusCode == 200) {
+        return unit;
       } else {
         throw ServerException();
       }

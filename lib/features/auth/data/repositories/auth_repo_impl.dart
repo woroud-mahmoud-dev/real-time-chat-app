@@ -5,6 +5,7 @@ import 'package:chaty/features/auth/domain/entities/login_request_body.dart';
 import 'package:chaty/features/auth/domain/entities/register_request_body.dart';
 import 'package:chaty/features/auth/domain/entities/user_response_entity.dart';
 import 'package:chaty/features/auth/domain/repositories/auth_repository.dart';
+import 'package:chaty/features/auth/presentation/bloc/cubit/login_cubit.dart';
 import 'package:dartz/dartz.dart';
 import '../../../../core/network/network_info.dart';
 import '../datasources/auth_local_datasource.dart';
@@ -24,8 +25,12 @@ class AuthRepoImpl implements AuthRepo {
     if (await networkInfo.isConnected) {
       try {
         final response = await authRemoteDataSource.login(loginRequestBody);
-        await authLocalDataSource.cachedUserData(response.user);
-        return Right(response);
+        if (response!.status == 200) {
+          await authLocalDataSource.cachedUserData(response.user!);
+          return Right(response);
+        } else {
+          return Left(ServerFailure());
+        }
       } on ServerException {
         return Left(ServerFailure());
       }
@@ -41,6 +46,34 @@ class AuthRepoImpl implements AuthRepo {
       try {
         final response = await authRemoteDataSource.register(requestBody);
         return Right(response);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(OfflineFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> activeUserAccount(String code) async {
+    if (await networkInfo.isConnected) {
+      try {
+        await authRemoteDataSource.activeUserAccount(code);
+        return const Right(unit);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(OfflineFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> resendActiveCode() async {
+    if (await networkInfo.isConnected) {
+      try {
+        final response = await authRemoteDataSource.resendActiveCode();
+        return const Right(unit);
       } on ServerException {
         return Left(ServerFailure());
       }

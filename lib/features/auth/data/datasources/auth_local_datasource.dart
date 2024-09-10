@@ -28,7 +28,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
       UserModel jsonToUserModels = UserModel.fromJson(decodeJsonData);
       return Future.value(jsonToUserModels);
     } else {
-      throw EmptyCacheException();
+      throw Exception();
     }
   }
 }
