@@ -71,12 +71,12 @@ mixin _$VerifyState {
 /// @nodoc
 abstract class $VerifyStateCopyWith<$Res> {
   factory $VerifyStateCopyWith(
-          VerifyState value, $Res Function(VerifyState) then) =
-      _$VerifyStateCopyWithImpl<$Res, VerifyState>;
+          ActiveAccountState value, $Res Function(ActiveAccountState) then) =
+      _$VerifyStateCopyWithImpl<$Res, ActiveAccountState>;
 }
 
 /// @nodoc
-class _$VerifyStateCopyWithImpl<$Res, $Val extends VerifyState>
+class _$VerifyStateCopyWithImpl<$Res, $Val extends ActiveAccountState>
     implements $VerifyStateCopyWith<$Res> {
   _$VerifyStateCopyWithImpl(this._value, this._then);
 
@@ -196,7 +196,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements VerifyState {
+abstract class _Initial implements ActiveAccountState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -310,7 +310,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements VerifyState {
+abstract class Loading implements ActiveAccountState {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -424,7 +424,7 @@ class _$SuceessImpl implements Suceess {
   }
 }
 
-abstract class Suceess implements VerifyState {
+abstract class Suceess implements ActiveAccountState {
   const factory Suceess() = _$SuceessImpl;
 }
 
@@ -565,7 +565,7 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements VerifyState {
+abstract class Error implements ActiveAccountState {
   const factory Error(final String errormesg) = _$ErrorImpl;
 
   String get errormesg;

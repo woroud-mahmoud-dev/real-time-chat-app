@@ -15,7 +15,7 @@ class OtpWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<VerifyCubit, VerifyState>(
+    return BlocConsumer<ActiveAccountCubit, ActiveAccountState>(
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
@@ -39,14 +39,14 @@ class OtpWidget extends StatelessWidget {
                 textDirection: TextDirection.ltr,
                 child: PinCodeTextField(
                   appContext: context,
-                  controller: context.read<VerifyCubit>().pinController,
+                  controller: context.read<ActiveAccountCubit>().pinController,
                   length: 5,
                   autoFocus: true,
                   cursorColor: AppColors.blueGreenMain,
                   keyboardType: TextInputType.number,
                   enableActiveFill: true,
                   onCompleted: (String code) {
-                    context.read<VerifyCubit>().activeAccountUser();
+                    context.read<ActiveAccountCubit>().activeUserAccount();
                   },
                   textStyle: const TextStyle(
                     color: AppColors.blueGreenMain,

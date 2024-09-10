@@ -5,22 +5,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/di/dependency_injection.dart';
 import '../bloc/cubit/verify_cubit.dart';
 
-class VerifyScreen extends StatefulWidget {
-  const VerifyScreen({super.key});
+class ActiveAccountScreen extends StatefulWidget {
+  const ActiveAccountScreen({super.key});
 
   @override
-  _VerifyScreenState createState() => _VerifyScreenState();
+  _ActiveAccountScreenState createState() => _ActiveAccountScreenState();
 }
 
-class _VerifyScreenState extends State<VerifyScreen> {
+class _ActiveAccountScreenState extends State<ActiveAccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Enter OTP'),
+        title: const Text('Enter Code To Active Account'),
       ),
       body: BlocProvider(
-        create: (context) => getIt<VerifyCubit>(),
+        create: (context) => getIt<ActiveAccountCubit>(),
         child: Container(
           width: double.infinity,
           child: const Column(

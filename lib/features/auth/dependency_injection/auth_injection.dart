@@ -16,8 +16,8 @@ Future<void> authInjection() async {
   // Bloc
   getIt.registerFactory(() => RegisterCubit(registerUserUseCase: getIt()));
   getIt.registerFactory(() => LoginCubit(loginUseCas: getIt()));
-  getIt.registerFactory(
-      () => VerifyCubit(activeAccount: getIt(), resendActiveCode: getIt()));
+  getIt.registerFactory(() =>
+      ActiveAccountCubit(activeAccount: getIt(), resendActiveCode: getIt()));
 
   // UseCases
   getIt.registerLazySingleton(() => RegisterUserUseCase(getIt()));

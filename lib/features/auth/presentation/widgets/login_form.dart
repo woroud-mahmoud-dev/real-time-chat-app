@@ -1,4 +1,4 @@
-import 'package:chaty/features/auth/presentation/pages/verify_account.dart';
+import 'package:chaty/features/auth/presentation/pages/active_account.dart';
 import 'package:chaty/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +26,7 @@ class LoginForm extends StatelessWidget {
         state.whenOrNull(
           unVerfiy: (mes) {
             EasyLoading.dismiss();
-            Get.offAll(const VerifyScreen());
+            Get.offAll(const ActiveAccountScreen());
           },
           loading: () {
             EasyLoading.show(status: 'Loading ...', dismissOnTap: false);

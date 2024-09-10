@@ -9,17 +9,19 @@ import '../../../domain/use_cases/resend_code.dart';
 part 'verify_state.dart';
 part 'verify_cubit.freezed.dart';
 
-class VerifyCubit extends Cubit<VerifyState> {
-  VerifyCubit({required this.resendActiveCode, required this.activeAccount})
-      : super(const VerifyState.initial());
+class ActiveAccountCubit extends Cubit<ActiveAccountState> {
+  ActiveAccountCubit(
+      {required this.resendActiveCode, required this.activeAccount})
+      : super(const ActiveAccountState.initial());
   final TextEditingController pinController = TextEditingController();
   final ResendActiveCode resendActiveCode;
   final ActiveAccountUseCase activeAccount;
-  activeAccountUser() async {
-    emit(const VerifyState.loading());
+  activeUserAccount() async {
+    emit(const ActiveAccountState.loading());
     final userResponse = await activeAccount(pinController.text);
-    userResponse.fold((l) => emit(VerifyState.error(_mapFailureToMessage(l))),
-        (r) => emit(const VerifyState.success()));
+    userResponse.fold(
+        (l) => emit(ActiveAccountState.error(_mapFailureToMessage(l))),
+        (r) => emit(const ActiveAccountState.success()));
   }
 
   String _mapFailureToMessage(Failure failure) {

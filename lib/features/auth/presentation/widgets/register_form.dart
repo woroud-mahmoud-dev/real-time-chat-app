@@ -1,5 +1,5 @@
 import 'package:chaty/features/auth/presentation/bloc/cubit/register_cubit.dart';
-import 'package:chaty/features/auth/presentation/pages/verify_account.dart';
+import 'package:chaty/features/auth/presentation/pages/active_account.dart';
 import 'package:chaty/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +24,7 @@ class RegisterForm extends StatelessWidget {
           },
           success: () {
             EasyLoading.dismiss();
-            Get.offAll(const VerifyScreen());
+            Get.offAll(const ActiveAccountScreen());
           },
           error: (error) {
             EasyLoading.showError(error);

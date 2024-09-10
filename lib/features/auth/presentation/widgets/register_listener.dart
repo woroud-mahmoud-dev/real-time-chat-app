@@ -1,4 +1,4 @@
-import 'package:chaty/features/auth/presentation/pages/verify_account.dart';
+import 'package:chaty/features/auth/presentation/pages/active_account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -21,7 +21,7 @@ class RegisterListener extends StatelessWidget {
           success: () {
             EasyLoading.dismiss();
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => VerifyScreen()));
+                .push(MaterialPageRoute(builder: (_) => ActiveAccountScreen()));
           },
           error: (error) {
             EasyLoading.showError(error);
