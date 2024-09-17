@@ -1,3 +1,4 @@
+import 'package:chaty/core/utils/shared_pref_const.dart';
 import 'package:chaty/features/auth/domain/entities/login_request_body.dart';
 import 'package:chaty/features/auth/domain/use_cases/login.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/error/failuers.dart';
+import '../../../../../core/services/local/cache_helper.dart';
 
 part 'login_state.dart';
 part 'login_cubit.freezed.dart';
@@ -29,7 +31,12 @@ class LoginCubit extends Cubit<LoginState> {
       } else {
         emit(LoginState.error(_mapFailureToMessage(l)));
       }
-    }, (r) => emit(const LoginState.success()));
+    }, (r) {
+      CacheHelper.saveData(
+          key: SharedPrefConst.apiToken, value: r.accessToken ?? "");
+      debugPrint(CacheHelper.getData(key: SharedPrefConst.apiToken));
+      emit(const LoginState.success());
+    });
   }
 
   String _mapFailureToMessage(Failure failure) {

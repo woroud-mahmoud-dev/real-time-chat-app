@@ -24,10 +24,12 @@ class SharedPrefConst {
   static const String filterCityHoly = 'filterCityHoly';
 
   /// here for profile data
-  static const String profileImagePath = 'profileImagePath';
+
   static const String profileNamePath = 'profileNamePath';
   static const String profileNumberPath = 'profileNumberPath';
   static const String profileEmailPath = 'profileEmailPath';
   static const String profileWallet = 'profileWallet';
   static const String profileNotificationState = 'profileNotificationState';
 }
+
+bool isLogedIn = false;

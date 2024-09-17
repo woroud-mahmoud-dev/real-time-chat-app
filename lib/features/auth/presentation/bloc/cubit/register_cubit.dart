@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/error/failuers.dart';
+import '../../../../../core/services/local/cache_helper.dart';
+import '../../../../../core/utils/shared_pref_const.dart';
 import '../../../domain/use_cases/register.dart';
 
 part 'register_state.dart';
@@ -29,7 +31,11 @@ class RegisterCubit extends Cubit<RegisterState> {
       // image: null,
     ));
     userResponse.fold((l) => emit(RegisterState.error(_mapFailureToMessage(l))),
-        (r) => emit(const RegisterState.success()));
+        (r) {
+      CacheHelper.saveData(
+          key: SharedPrefConst.apiToken, value: r.accessToken ?? "");
+      emit(const RegisterState.success());
+    });
   }
 
   String _mapFailureToMessage(Failure failure) {

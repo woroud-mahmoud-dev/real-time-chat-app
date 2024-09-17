@@ -1,16 +1,32 @@
+import 'package:chaty/core/services/local/cache_helper.dart';
+import 'package:chaty/core/utils/shared_pref_const.dart';
+import 'package:chaty/core/utils/extensions.dart';
+import 'package:chaty/features/auth/presentation/pages/login_screen.dart';
+import 'package:chaty/features/home/presentation/pages/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'core/di/dependency_injection.dart';
-import 'features/auth/presentation/pages/register_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupGetIt();
+  await CacheHelper.init();
+  // await checkIfLogedIn();
   runApp(const MyApp());
 }
+
+// checkIfLogedIn() async {
+//   String? userToken = await CacheHelper.getData(key: SharedPrefConst.apiToken);
+//   if (userToken.isNullOrEmpty()) {
+//     print(" token is ${CacheHelper.getData(key: SharedPrefConst.apiToken)}");
+//     isLogedIn = false;
+//   } else {
+//     isLogedIn = true;
+//   }
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -31,7 +47,9 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
             ),
             builder: EasyLoading.init(),
-            home: RegisterScreen(),
+            home: CacheHelper.getData(key: SharedPrefConst.apiToken) != null
+                ? const HomeScreen()
+                : const LoginScreen(),
           );
         });
   }
