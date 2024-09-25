@@ -1,5 +1,5 @@
 import 'package:chaty/core/utils/utils.dart';
-import 'package:chaty/features/auth/presentation/bloc/cubit/verify_cubit.dart';
+import 'package:chaty/features/auth/presentation/bloc/cubit/active_account_cubit.dart';
 import 'package:chaty/features/home/presentation/pages/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -6,8 +6,8 @@ import '../../../../../core/error/failuers.dart';
 import '../../../domain/use_cases/active_account.dart';
 import '../../../domain/use_cases/resend_code.dart';
 
-part 'verify_state.dart';
-part 'verify_cubit.freezed.dart';
+part 'active_account_state.dart';
+part 'active_account_cubit.freezed.dart';
 
 class ActiveAccountCubit extends Cubit<ActiveAccountState> {
   ActiveAccountCubit(

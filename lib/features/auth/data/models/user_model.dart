@@ -12,7 +12,7 @@ class UserResponseModel extends UserReponse {
     return UserResponseModel(
         status: json["status"],
         isSuccess: json["isSuccess"],
-        accessToken: json["accessToken"],
+        accessToken: json["access_token"],
         user: json["data"] != null ? UserModel.fromJson(json["data"]) : null,
         message: json["message"]);
   }

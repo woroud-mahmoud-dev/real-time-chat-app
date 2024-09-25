@@ -1,7 +1,7 @@
-part of 'verify_cubit.dart';
+part of 'active_account_cubit.dart';
 
 @freezed
-class ActiveAccountState with _$VerifyState {
+class ActiveAccountState with _$ActiveAccountState {
   const factory ActiveAccountState.initial() = _Initial;
   const factory ActiveAccountState.loading() = Loading;
   const factory ActiveAccountState.success() = Suceess;

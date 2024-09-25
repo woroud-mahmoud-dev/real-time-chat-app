@@ -22,7 +22,7 @@ class WrongDataFailure extends FailureModel {
   List<Object?> get props => [];
 }
 
-class NotVerifedFailure extends FailureModel {
+class UnAuthraizedFailure  extends FailureModel {
   @override
   List<Object?> get props => [];
 }

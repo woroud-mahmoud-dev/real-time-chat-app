@@ -4,3 +4,4 @@ class EmptyCacheException implements Exception {}
 
 class OfflineException implements Exception {}
 class NotVerifedEexeption implements Exception {}
+class UnAuthraizedException implements Exception {}

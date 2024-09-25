@@ -1,7 +1,8 @@
-import 'package:chaty/features/home/presentation/pages/all_contents.dart';
+import 'package:chaty/features/home/presentation/pages/all_active_users.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:chaty/core/services/local/cache_helper.dart';
+import 'package:chaty/core/utils/shared_pref_const.dart';
 import '../../../../core/utils/utils.dart';
 import 'all_chats.dart';
 
@@ -20,17 +21,18 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void initState() {
+    debugPrint("CacheHelper.getData(key: SharedPrefConst.apiToken)");
+    debugPrint(CacheHelper.getData(key: SharedPrefConst.apiToken));
     tabController =
         TabController(length: 3, vsync: this, initialIndex: _currentIndex);
     _tabs = [
       AllCahtsTap(
         tabController: tabController,
       ),
-        
-        AllContantsTap(
+      AllActiveUsers(
         tabController: tabController,
       ),
-      AllContantsTap(
+      AllActiveUsers(
         tabController: tabController,
       ),
     ];
@@ -42,9 +44,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: const Center(
-          child: Text('Wellcome to home Sceen'),
-        ),
+        body: SafeArea(child: _tabs[_currentIndex]),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
               color: AppColors.black, borderRadius: BorderRadius.circular(10)),
@@ -72,15 +72,15 @@ class _HomeScreenState extends State<HomeScreen>
               items: const [
                 BottomNavigationBarItem(
                   label: "chats",
-                  icon: Icon(Icons.chat),
+                  icon: Icon(Icons.message),
                 ),
                 BottomNavigationBarItem(
-                  label: "contaents",
+                  label: "contacts",
                   icon: Icon(Icons.contact_mail),
                 ),
                 BottomNavigationBarItem(
-                  label: "home",
-                  icon: Icon(Icons.chat),
+                  label: "Profile",
+                  icon: Icon(Icons.account_box),
                 ),
               ]),
         ));

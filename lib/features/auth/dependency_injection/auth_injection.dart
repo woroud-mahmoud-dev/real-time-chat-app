@@ -6,7 +6,7 @@ import 'package:chaty/features/auth/domain/use_cases/login.dart';
 import 'package:chaty/features/auth/domain/use_cases/register.dart';
 import 'package:chaty/features/auth/presentation/bloc/cubit/login_cubit.dart';
 import 'package:chaty/features/auth/presentation/bloc/cubit/register_cubit.dart';
-import 'package:chaty/features/auth/presentation/bloc/cubit/verify_cubit.dart';
+import 'package:chaty/features/auth/presentation/bloc/cubit/active_account_cubit.dart';
 
 import '../../../core/di/dependency_injection.dart';
 import '../domain/use_cases/active_account.dart';

@@ -34,7 +34,10 @@ class LoginCubit extends Cubit<LoginState> {
     }, (r) {
       CacheHelper.saveData(
           key: SharedPrefConst.apiToken, value: r.accessToken ?? "");
+      debugPrint("save Token : ===========>");
       debugPrint(CacheHelper.getData(key: SharedPrefConst.apiToken));
+      debugPrint("save Token : ===========> Done ======================");
+
       emit(const LoginState.success());
     });
   }

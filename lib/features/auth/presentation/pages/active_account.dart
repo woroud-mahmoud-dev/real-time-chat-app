@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di/dependency_injection.dart';
-import '../bloc/cubit/verify_cubit.dart';
+import '../bloc/cubit/active_account_cubit.dart';
 
 class ActiveAccountScreen extends StatefulWidget {
   const ActiveAccountScreen({super.key});

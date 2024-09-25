@@ -7,6 +7,10 @@ class ApiConstants {
   static const String activeAccount = "/auth/verifiy";
   static const String resendActiveCode = "/auth/resendActiveCode";
   static const String register = "/auth/register";
+  //<<== HOME & CHATS ==>>
+  static const String allActiveUeseres = "/auth/users";
+  static const String sendMessageOrStartChat = "/chat/send-message";
+  static const String allConversations = "/chat/fetchconversations";
 }
 
 class ApiErrors {

@@ -7,7 +7,7 @@ import '../../data/models/user_model.dart';
 class UserReponse extends Equatable {
   final String isSuccess;
   final String? message;
-  final String? accessToken;
+  final String accessToken;
   final int status;
   final UserModel? user;
   const UserReponse(

@@ -1,9 +1,9 @@
 import 'package:chaty/core/services/local/cache_helper.dart';
 import 'package:chaty/core/utils/shared_pref_const.dart';
-import 'package:chaty/core/utils/extensions.dart';
 import 'package:chaty/features/auth/presentation/pages/login_screen.dart';
 import 'package:chaty/features/home/presentation/pages/homeScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -14,7 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupGetIt();
   await CacheHelper.init();
-  // await checkIfLogedIn();
+  await dotenv.load();
   runApp(const MyApp());
 }
 
