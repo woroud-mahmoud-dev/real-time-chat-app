@@ -1,21 +1,18 @@
 import 'package:chaty/core/services/local/cache_helper.dart';
 import 'package:chaty/core/utils/shared_pref_const.dart';
 import 'package:chaty/features/chat/domain/entities/message.dart';
-import 'package:chaty/features/home/data/models/all_active_user_model.dart';
-import 'package:chaty/features/home/domain/entities/all_conversataion.dart';
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
-
 import '../../../../core/error/execption.dart';
 import '../../../../core/services/network/api_constant.dart';
+import '../../domain/entities/chat_all_messages.dart';
 import '../../domain/entities/message_response.dart';
 
-abstract class HomeRemotDataSource {
+abstract class ChatRemotDataSource {
   Future<MessageResponse> sendMessage(Message message);
+  Future<ChatMessagesResponse> getMessages(int chatId);
 }
 
-class ChatRemotDataSourceImpl implements HomeRemotDataSource {
+class ChatRemotDataSourceImpl implements ChatRemotDataSource {
   final Dio dio;
 
   ChatRemotDataSourceImpl({required this.dio});
@@ -23,10 +20,6 @@ class ChatRemotDataSourceImpl implements HomeRemotDataSource {
   @override
   Future<MessageResponse> sendMessage(Message message) async {
     try {
-      if (kDebugMode) {
-        print('token is ======================>');
-        print(CacheHelper.getData(key: SharedPrefConst.apiToken).toString());
-      }
       Map<String, String> header = {
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -48,6 +41,36 @@ class ChatRemotDataSourceImpl implements HomeRemotDataSource {
         throw ServerException();
       }
     } catch (e) {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<ChatMessagesResponse> getMessages(int chatId) async {
+    try {
+      Map<String, String> header = {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization":
+            "Bearer ${CacheHelper.getData(key: SharedPrefConst.apiToken).toString()}"
+      };
+      print("${CacheHelper.getData(key: SharedPrefConst.apiToken).toString()}");
+      final response = await dio.post(
+        ApiConstants.apiBaseUrl + ApiConstants.getAllMessage,
+        data: {"conversation_id": chatId},
+        options: Options(
+            headers: header, receiveTimeout: const Duration(seconds: 30)),
+      );
+
+      if (response.statusCode == 200) {
+        final data = response.data;
+        final chatMessages = ChatMessagesResponse.fromJson(data);
+        return chatMessages;
+      } else {
+        throw ServerException();
+      }
+    } catch (e) {
+      print(e.toString());
       throw ServerException();
     }
   }

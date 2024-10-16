@@ -45,9 +45,9 @@ class MessageResponse {
 }
 
 class ChatMessage {
-  final int conversationId;
+  final String conversationId;
   final String message;
-  final int userId;
+  final String userId;
   final DateTime updatedAt;
   final DateTime createdAt;
   final int id;
@@ -62,9 +62,9 @@ class ChatMessage {
   });
 
   factory ChatMessage.fromJson(Map<String, dynamic> json) => ChatMessage(
-        conversationId: json["conversation_id"],
+        conversationId: json["conversation_id"].toString(),
         message: json["message"],
-        userId: json["user_id"],
+        userId: json["user_id"].toString(),
         updatedAt: DateTime.parse(json["updated_at"]),
         createdAt: DateTime.parse(json["created_at"]),
         id: json["id"],

@@ -20,11 +20,8 @@ mixin _$UserChatsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            AllActiveUsersResponseEntity activeUsersResponseEntity)
-        success,
-    required TResult Function(AllConversationsResponse allConversationsResponse)
-        getChatsSuccess,
+    required TResult Function() lestenSuccess,
+    required TResult Function() getAllMessagesSucees,
     required TResult Function(MessageResponse messageResponse)
         sendMessageSuccess,
     required TResult Function(String errormesg) error,
@@ -34,10 +31,8 @@ mixin _$UserChatsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult? Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult? Function()? lestenSuccess,
+    TResult? Function()? getAllMessagesSucees,
     TResult? Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult? Function(String errormesg)? error,
   }) =>
@@ -46,10 +41,8 @@ mixin _$UserChatsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult Function()? lestenSuccess,
+    TResult Function()? getAllMessagesSucees,
     TResult Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult Function(String errormesg)? error,
     required TResult orElse(),
@@ -59,8 +52,8 @@ mixin _$UserChatsState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Suceess value) success,
-    required TResult Function(getChatsSucceess value) getChatsSuccess,
+    required TResult Function(ListenSuceess value) lestenSuccess,
+    required TResult Function(GetAllMessagesSucees value) getAllMessagesSucees,
     required TResult Function(SendMessageResponse value) sendMessageSuccess,
     required TResult Function(Error value) error,
   }) =>
@@ -69,8 +62,8 @@ mixin _$UserChatsState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Suceess value)? success,
-    TResult? Function(getChatsSucceess value)? getChatsSuccess,
+    TResult? Function(ListenSuceess value)? lestenSuccess,
+    TResult? Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult? Function(SendMessageResponse value)? sendMessageSuccess,
     TResult? Function(Error value)? error,
   }) =>
@@ -79,8 +72,8 @@ mixin _$UserChatsState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Suceess value)? success,
-    TResult Function(getChatsSucceess value)? getChatsSuccess,
+    TResult Function(ListenSuceess value)? lestenSuccess,
+    TResult Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult Function(SendMessageResponse value)? sendMessageSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
@@ -146,11 +139,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            AllActiveUsersResponseEntity activeUsersResponseEntity)
-        success,
-    required TResult Function(AllConversationsResponse allConversationsResponse)
-        getChatsSuccess,
+    required TResult Function() lestenSuccess,
+    required TResult Function() getAllMessagesSucees,
     required TResult Function(MessageResponse messageResponse)
         sendMessageSuccess,
     required TResult Function(String errormesg) error,
@@ -163,10 +153,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult? Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult? Function()? lestenSuccess,
+    TResult? Function()? getAllMessagesSucees,
     TResult? Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult? Function(String errormesg)? error,
   }) {
@@ -178,10 +166,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult Function()? lestenSuccess,
+    TResult Function()? getAllMessagesSucees,
     TResult Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult Function(String errormesg)? error,
     required TResult orElse(),
@@ -197,8 +183,8 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Suceess value) success,
-    required TResult Function(getChatsSucceess value) getChatsSuccess,
+    required TResult Function(ListenSuceess value) lestenSuccess,
+    required TResult Function(GetAllMessagesSucees value) getAllMessagesSucees,
     required TResult Function(SendMessageResponse value) sendMessageSuccess,
     required TResult Function(Error value) error,
   }) {
@@ -210,8 +196,8 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Suceess value)? success,
-    TResult? Function(getChatsSucceess value)? getChatsSuccess,
+    TResult? Function(ListenSuceess value)? lestenSuccess,
+    TResult? Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult? Function(SendMessageResponse value)? sendMessageSuccess,
     TResult? Function(Error value)? error,
   }) {
@@ -223,8 +209,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Suceess value)? success,
-    TResult Function(getChatsSucceess value)? getChatsSuccess,
+    TResult Function(ListenSuceess value)? lestenSuccess,
+    TResult Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult Function(SendMessageResponse value)? sendMessageSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
@@ -280,11 +266,8 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            AllActiveUsersResponseEntity activeUsersResponseEntity)
-        success,
-    required TResult Function(AllConversationsResponse allConversationsResponse)
-        getChatsSuccess,
+    required TResult Function() lestenSuccess,
+    required TResult Function() getAllMessagesSucees,
     required TResult Function(MessageResponse messageResponse)
         sendMessageSuccess,
     required TResult Function(String errormesg) error,
@@ -297,10 +280,8 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult? Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult? Function()? lestenSuccess,
+    TResult? Function()? getAllMessagesSucees,
     TResult? Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult? Function(String errormesg)? error,
   }) {
@@ -312,10 +293,8 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult Function()? lestenSuccess,
+    TResult Function()? getAllMessagesSucees,
     TResult Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult Function(String errormesg)? error,
     required TResult orElse(),
@@ -331,8 +310,8 @@ class _$LoadingImpl implements Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Suceess value) success,
-    required TResult Function(getChatsSucceess value) getChatsSuccess,
+    required TResult Function(ListenSuceess value) lestenSuccess,
+    required TResult Function(GetAllMessagesSucees value) getAllMessagesSucees,
     required TResult Function(SendMessageResponse value) sendMessageSuccess,
     required TResult Function(Error value) error,
   }) {
@@ -344,8 +323,8 @@ class _$LoadingImpl implements Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Suceess value)? success,
-    TResult? Function(getChatsSucceess value)? getChatsSuccess,
+    TResult? Function(ListenSuceess value)? lestenSuccess,
+    TResult? Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult? Function(SendMessageResponse value)? sendMessageSuccess,
     TResult? Function(Error value)? error,
   }) {
@@ -357,8 +336,8 @@ class _$LoadingImpl implements Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Suceess value)? success,
-    TResult Function(getChatsSucceess value)? getChatsSuccess,
+    TResult Function(ListenSuceess value)? lestenSuccess,
+    TResult Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult Function(SendMessageResponse value)? sendMessageSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
@@ -375,83 +354,52 @@ abstract class Loading implements UserChatsState {
 }
 
 /// @nodoc
-abstract class _$$SuceessImplCopyWith<$Res> {
-  factory _$$SuceessImplCopyWith(
-          _$SuceessImpl value, $Res Function(_$SuceessImpl) then) =
-      __$$SuceessImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({AllActiveUsersResponseEntity activeUsersResponseEntity});
+abstract class _$$ListenSuceessImplCopyWith<$Res> {
+  factory _$$ListenSuceessImplCopyWith(
+          _$ListenSuceessImpl value, $Res Function(_$ListenSuceessImpl) then) =
+      __$$ListenSuceessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SuceessImplCopyWithImpl<$Res>
-    extends _$UserChatsStateCopyWithImpl<$Res, _$SuceessImpl>
-    implements _$$SuceessImplCopyWith<$Res> {
-  __$$SuceessImplCopyWithImpl(
-      _$SuceessImpl _value, $Res Function(_$SuceessImpl) _then)
+class __$$ListenSuceessImplCopyWithImpl<$Res>
+    extends _$UserChatsStateCopyWithImpl<$Res, _$ListenSuceessImpl>
+    implements _$$ListenSuceessImplCopyWith<$Res> {
+  __$$ListenSuceessImplCopyWithImpl(
+      _$ListenSuceessImpl _value, $Res Function(_$ListenSuceessImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? activeUsersResponseEntity = null,
-  }) {
-    return _then(_$SuceessImpl(
-      null == activeUsersResponseEntity
-          ? _value.activeUsersResponseEntity
-          : activeUsersResponseEntity // ignore: cast_nullable_to_non_nullable
-              as AllActiveUsersResponseEntity,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$SuceessImpl implements Suceess {
-  const _$SuceessImpl(this.activeUsersResponseEntity);
-
-  @override
-  final AllActiveUsersResponseEntity activeUsersResponseEntity;
+class _$ListenSuceessImpl implements ListenSuceess {
+  const _$ListenSuceessImpl();
 
   @override
   String toString() {
-    return 'UserChatsState.success(activeUsersResponseEntity: $activeUsersResponseEntity)';
+    return 'UserChatsState.lestenSuccess()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SuceessImpl &&
-            (identical(other.activeUsersResponseEntity,
-                    activeUsersResponseEntity) ||
-                other.activeUsersResponseEntity == activeUsersResponseEntity));
+        (other.runtimeType == runtimeType && other is _$ListenSuceessImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, activeUsersResponseEntity);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SuceessImplCopyWith<_$SuceessImpl> get copyWith =>
-      __$$SuceessImplCopyWithImpl<_$SuceessImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            AllActiveUsersResponseEntity activeUsersResponseEntity)
-        success,
-    required TResult Function(AllConversationsResponse allConversationsResponse)
-        getChatsSuccess,
+    required TResult Function() lestenSuccess,
+    required TResult Function() getAllMessagesSucees,
     required TResult Function(MessageResponse messageResponse)
         sendMessageSuccess,
     required TResult Function(String errormesg) error,
   }) {
-    return success(activeUsersResponseEntity);
+    return lestenSuccess();
   }
 
   @override
@@ -459,14 +407,12 @@ class _$SuceessImpl implements Suceess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult? Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult? Function()? lestenSuccess,
+    TResult? Function()? getAllMessagesSucees,
     TResult? Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult? Function(String errormesg)? error,
   }) {
-    return success?.call(activeUsersResponseEntity);
+    return lestenSuccess?.call();
   }
 
   @override
@@ -474,16 +420,14 @@ class _$SuceessImpl implements Suceess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult Function()? lestenSuccess,
+    TResult Function()? getAllMessagesSucees,
     TResult Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult Function(String errormesg)? error,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(activeUsersResponseEntity);
+    if (lestenSuccess != null) {
+      return lestenSuccess();
     }
     return orElse();
   }
@@ -493,12 +437,12 @@ class _$SuceessImpl implements Suceess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Suceess value) success,
-    required TResult Function(getChatsSucceess value) getChatsSuccess,
+    required TResult Function(ListenSuceess value) lestenSuccess,
+    required TResult Function(GetAllMessagesSucees value) getAllMessagesSucees,
     required TResult Function(SendMessageResponse value) sendMessageSuccess,
     required TResult Function(Error value) error,
   }) {
-    return success(this);
+    return lestenSuccess(this);
   }
 
   @override
@@ -506,12 +450,12 @@ class _$SuceessImpl implements Suceess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Suceess value)? success,
-    TResult? Function(getChatsSucceess value)? getChatsSuccess,
+    TResult? Function(ListenSuceess value)? lestenSuccess,
+    TResult? Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult? Function(SendMessageResponse value)? sendMessageSuccess,
     TResult? Function(Error value)? error,
   }) {
-    return success?.call(this);
+    return lestenSuccess?.call(this);
   }
 
   @override
@@ -519,109 +463,71 @@ class _$SuceessImpl implements Suceess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Suceess value)? success,
-    TResult Function(getChatsSucceess value)? getChatsSuccess,
+    TResult Function(ListenSuceess value)? lestenSuccess,
+    TResult Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult Function(SendMessageResponse value)? sendMessageSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (lestenSuccess != null) {
+      return lestenSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class Suceess implements UserChatsState {
-  const factory Suceess(
-          final AllActiveUsersResponseEntity activeUsersResponseEntity) =
-      _$SuceessImpl;
-
-  AllActiveUsersResponseEntity get activeUsersResponseEntity;
-  @JsonKey(ignore: true)
-  _$$SuceessImplCopyWith<_$SuceessImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class ListenSuceess implements UserChatsState {
+  const factory ListenSuceess() = _$ListenSuceessImpl;
 }
 
 /// @nodoc
-abstract class _$$getChatsSucceessImplCopyWith<$Res> {
-  factory _$$getChatsSucceessImplCopyWith(_$getChatsSucceessImpl value,
-          $Res Function(_$getChatsSucceessImpl) then) =
-      __$$getChatsSucceessImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({AllConversationsResponse allConversationsResponse});
+abstract class _$$GetAllMessagesSuceesImplCopyWith<$Res> {
+  factory _$$GetAllMessagesSuceesImplCopyWith(_$GetAllMessagesSuceesImpl value,
+          $Res Function(_$GetAllMessagesSuceesImpl) then) =
+      __$$GetAllMessagesSuceesImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$getChatsSucceessImplCopyWithImpl<$Res>
-    extends _$UserChatsStateCopyWithImpl<$Res, _$getChatsSucceessImpl>
-    implements _$$getChatsSucceessImplCopyWith<$Res> {
-  __$$getChatsSucceessImplCopyWithImpl(_$getChatsSucceessImpl _value,
-      $Res Function(_$getChatsSucceessImpl) _then)
+class __$$GetAllMessagesSuceesImplCopyWithImpl<$Res>
+    extends _$UserChatsStateCopyWithImpl<$Res, _$GetAllMessagesSuceesImpl>
+    implements _$$GetAllMessagesSuceesImplCopyWith<$Res> {
+  __$$GetAllMessagesSuceesImplCopyWithImpl(_$GetAllMessagesSuceesImpl _value,
+      $Res Function(_$GetAllMessagesSuceesImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? allConversationsResponse = null,
-  }) {
-    return _then(_$getChatsSucceessImpl(
-      null == allConversationsResponse
-          ? _value.allConversationsResponse
-          : allConversationsResponse // ignore: cast_nullable_to_non_nullable
-              as AllConversationsResponse,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$getChatsSucceessImpl implements getChatsSucceess {
-  const _$getChatsSucceessImpl(this.allConversationsResponse);
-
-  @override
-  final AllConversationsResponse allConversationsResponse;
+class _$GetAllMessagesSuceesImpl implements GetAllMessagesSucees {
+  const _$GetAllMessagesSuceesImpl();
 
   @override
   String toString() {
-    return 'UserChatsState.getChatsSuccess(allConversationsResponse: $allConversationsResponse)';
+    return 'UserChatsState.getAllMessagesSucees()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$getChatsSucceessImpl &&
-            (identical(
-                    other.allConversationsResponse, allConversationsResponse) ||
-                other.allConversationsResponse == allConversationsResponse));
+            other is _$GetAllMessagesSuceesImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, allConversationsResponse);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$getChatsSucceessImplCopyWith<_$getChatsSucceessImpl> get copyWith =>
-      __$$getChatsSucceessImplCopyWithImpl<_$getChatsSucceessImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            AllActiveUsersResponseEntity activeUsersResponseEntity)
-        success,
-    required TResult Function(AllConversationsResponse allConversationsResponse)
-        getChatsSuccess,
+    required TResult Function() lestenSuccess,
+    required TResult Function() getAllMessagesSucees,
     required TResult Function(MessageResponse messageResponse)
         sendMessageSuccess,
     required TResult Function(String errormesg) error,
   }) {
-    return getChatsSuccess(allConversationsResponse);
+    return getAllMessagesSucees();
   }
 
   @override
@@ -629,14 +535,12 @@ class _$getChatsSucceessImpl implements getChatsSucceess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult? Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult? Function()? lestenSuccess,
+    TResult? Function()? getAllMessagesSucees,
     TResult? Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult? Function(String errormesg)? error,
   }) {
-    return getChatsSuccess?.call(allConversationsResponse);
+    return getAllMessagesSucees?.call();
   }
 
   @override
@@ -644,16 +548,14 @@ class _$getChatsSucceessImpl implements getChatsSucceess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult Function()? lestenSuccess,
+    TResult Function()? getAllMessagesSucees,
     TResult Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult Function(String errormesg)? error,
     required TResult orElse(),
   }) {
-    if (getChatsSuccess != null) {
-      return getChatsSuccess(allConversationsResponse);
+    if (getAllMessagesSucees != null) {
+      return getAllMessagesSucees();
     }
     return orElse();
   }
@@ -663,12 +565,12 @@ class _$getChatsSucceessImpl implements getChatsSucceess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Suceess value) success,
-    required TResult Function(getChatsSucceess value) getChatsSuccess,
+    required TResult Function(ListenSuceess value) lestenSuccess,
+    required TResult Function(GetAllMessagesSucees value) getAllMessagesSucees,
     required TResult Function(SendMessageResponse value) sendMessageSuccess,
     required TResult Function(Error value) error,
   }) {
-    return getChatsSuccess(this);
+    return getAllMessagesSucees(this);
   }
 
   @override
@@ -676,12 +578,12 @@ class _$getChatsSucceessImpl implements getChatsSucceess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Suceess value)? success,
-    TResult? Function(getChatsSucceess value)? getChatsSuccess,
+    TResult? Function(ListenSuceess value)? lestenSuccess,
+    TResult? Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult? Function(SendMessageResponse value)? sendMessageSuccess,
     TResult? Function(Error value)? error,
   }) {
-    return getChatsSuccess?.call(this);
+    return getAllMessagesSucees?.call(this);
   }
 
   @override
@@ -689,28 +591,21 @@ class _$getChatsSucceessImpl implements getChatsSucceess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Suceess value)? success,
-    TResult Function(getChatsSucceess value)? getChatsSuccess,
+    TResult Function(ListenSuceess value)? lestenSuccess,
+    TResult Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult Function(SendMessageResponse value)? sendMessageSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (getChatsSuccess != null) {
-      return getChatsSuccess(this);
+    if (getAllMessagesSucees != null) {
+      return getAllMessagesSucees(this);
     }
     return orElse();
   }
 }
 
-abstract class getChatsSucceess implements UserChatsState {
-  const factory getChatsSucceess(
-          final AllConversationsResponse allConversationsResponse) =
-      _$getChatsSucceessImpl;
-
-  AllConversationsResponse get allConversationsResponse;
-  @JsonKey(ignore: true)
-  _$$getChatsSucceessImplCopyWith<_$getChatsSucceessImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class GetAllMessagesSucees implements UserChatsState {
+  const factory GetAllMessagesSucees() = _$GetAllMessagesSuceesImpl;
 }
 
 /// @nodoc
@@ -781,11 +676,8 @@ class _$SendMessageResponseImpl implements SendMessageResponse {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            AllActiveUsersResponseEntity activeUsersResponseEntity)
-        success,
-    required TResult Function(AllConversationsResponse allConversationsResponse)
-        getChatsSuccess,
+    required TResult Function() lestenSuccess,
+    required TResult Function() getAllMessagesSucees,
     required TResult Function(MessageResponse messageResponse)
         sendMessageSuccess,
     required TResult Function(String errormesg) error,
@@ -798,10 +690,8 @@ class _$SendMessageResponseImpl implements SendMessageResponse {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult? Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult? Function()? lestenSuccess,
+    TResult? Function()? getAllMessagesSucees,
     TResult? Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult? Function(String errormesg)? error,
   }) {
@@ -813,10 +703,8 @@ class _$SendMessageResponseImpl implements SendMessageResponse {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult Function()? lestenSuccess,
+    TResult Function()? getAllMessagesSucees,
     TResult Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult Function(String errormesg)? error,
     required TResult orElse(),
@@ -832,8 +720,8 @@ class _$SendMessageResponseImpl implements SendMessageResponse {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Suceess value) success,
-    required TResult Function(getChatsSucceess value) getChatsSuccess,
+    required TResult Function(ListenSuceess value) lestenSuccess,
+    required TResult Function(GetAllMessagesSucees value) getAllMessagesSucees,
     required TResult Function(SendMessageResponse value) sendMessageSuccess,
     required TResult Function(Error value) error,
   }) {
@@ -845,8 +733,8 @@ class _$SendMessageResponseImpl implements SendMessageResponse {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Suceess value)? success,
-    TResult? Function(getChatsSucceess value)? getChatsSuccess,
+    TResult? Function(ListenSuceess value)? lestenSuccess,
+    TResult? Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult? Function(SendMessageResponse value)? sendMessageSuccess,
     TResult? Function(Error value)? error,
   }) {
@@ -858,8 +746,8 @@ class _$SendMessageResponseImpl implements SendMessageResponse {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Suceess value)? success,
-    TResult Function(getChatsSucceess value)? getChatsSuccess,
+    TResult Function(ListenSuceess value)? lestenSuccess,
+    TResult Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult Function(SendMessageResponse value)? sendMessageSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
@@ -948,11 +836,8 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            AllActiveUsersResponseEntity activeUsersResponseEntity)
-        success,
-    required TResult Function(AllConversationsResponse allConversationsResponse)
-        getChatsSuccess,
+    required TResult Function() lestenSuccess,
+    required TResult Function() getAllMessagesSucees,
     required TResult Function(MessageResponse messageResponse)
         sendMessageSuccess,
     required TResult Function(String errormesg) error,
@@ -965,10 +850,8 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult? Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult? Function()? lestenSuccess,
+    TResult? Function()? getAllMessagesSucees,
     TResult? Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult? Function(String errormesg)? error,
   }) {
@@ -980,10 +863,8 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllActiveUsersResponseEntity activeUsersResponseEntity)?
-        success,
-    TResult Function(AllConversationsResponse allConversationsResponse)?
-        getChatsSuccess,
+    TResult Function()? lestenSuccess,
+    TResult Function()? getAllMessagesSucees,
     TResult Function(MessageResponse messageResponse)? sendMessageSuccess,
     TResult Function(String errormesg)? error,
     required TResult orElse(),
@@ -999,8 +880,8 @@ class _$ErrorImpl implements Error {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Suceess value) success,
-    required TResult Function(getChatsSucceess value) getChatsSuccess,
+    required TResult Function(ListenSuceess value) lestenSuccess,
+    required TResult Function(GetAllMessagesSucees value) getAllMessagesSucees,
     required TResult Function(SendMessageResponse value) sendMessageSuccess,
     required TResult Function(Error value) error,
   }) {
@@ -1012,8 +893,8 @@ class _$ErrorImpl implements Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Suceess value)? success,
-    TResult? Function(getChatsSucceess value)? getChatsSuccess,
+    TResult? Function(ListenSuceess value)? lestenSuccess,
+    TResult? Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult? Function(SendMessageResponse value)? sendMessageSuccess,
     TResult? Function(Error value)? error,
   }) {
@@ -1025,8 +906,8 @@ class _$ErrorImpl implements Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Suceess value)? success,
-    TResult Function(getChatsSucceess value)? getChatsSuccess,
+    TResult Function(ListenSuceess value)? lestenSuccess,
+    TResult Function(GetAllMessagesSucees value)? getAllMessagesSucees,
     TResult Function(SendMessageResponse value)? sendMessageSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),

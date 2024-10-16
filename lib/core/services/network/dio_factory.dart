@@ -30,7 +30,6 @@ class DioFactory {
   static void addDioInterceptor() {
     dio?.interceptors.add(InterceptorsWrapper(
       onResponse: (response, handler) {
-        print(response.data);
         // Check for unauthorized response status code
         if (response.statusCode == 401) {
           // Navigate to the login screen using
@@ -42,6 +41,7 @@ class DioFactory {
 
     dio?.interceptors.add(
       PrettyDioLogger(
+        
         requestBody: true,
         requestHeader: true,
         responseHeader: true,

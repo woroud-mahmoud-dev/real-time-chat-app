@@ -5,6 +5,7 @@ import 'package:chaty/core/services/local/cache_helper.dart';
 import 'package:chaty/core/utils/shared_pref_const.dart';
 import '../../../../core/utils/utils.dart';
 import 'all_chats.dart';
+import 'profile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen>
       AllActiveUsers(
         tabController: tabController,
       ),
-      AllActiveUsers(
+      ProfileSceen(
         tabController: tabController,
       ),
     ];

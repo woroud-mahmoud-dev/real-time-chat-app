@@ -1,4 +1,6 @@
+import 'package:chaty/core/services/local/cache_helper.dart';
 import 'package:chaty/core/services/network/api_constant.dart';
+import 'package:chaty/core/utils/shared_pref_const.dart';
 import 'package:chaty/features/auth/domain/entities/login_request_body.dart';
 import 'package:chaty/features/auth/domain/entities/register_request_body.dart';
 import 'package:dartz/dartz.dart';
@@ -29,6 +31,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       if (response.statusCode == 200) {
         final data = response.data;
         final userModel = UserResponseModel.fromJson(data);
+        CacheHelper.saveData(
+            key: SharedPrefConst.userId, value: userModel.user!.id);
+        CacheHelper.saveData(
+            key: SharedPrefConst.activeCode, value: userModel.user!.emailCode);
         return userModel;
       } else {
         throw ServerException();
@@ -48,14 +54,21 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
       final userModel = UserResponseModel.fromJson(data);
       if (userModel.status == 422) {
+        // CacheHelper.saveData(
+        //     key: SharedPrefConst.userId, value: userModel.user!.id);
+        CacheHelper.saveData(
+            key: SharedPrefConst.activeCode, value: userModel.user!.emailCode);
         throw NotVerifedEexeption();
       } else if (userModel.status == 200) {
+        CacheHelper.saveData(
+            key: SharedPrefConst.userId, value: userModel.user!.id);
+
         return userModel;
       } else {
         throw ServerException();
       }
     } catch (e) {
-      print(e);
+      print("The Eror is : $e");
       throw ServerException();
     }
   }

@@ -5,7 +5,6 @@ import 'package:chaty/features/auth/domain/entities/login_request_body.dart';
 import 'package:chaty/features/auth/domain/entities/register_request_body.dart';
 import 'package:chaty/features/auth/domain/entities/user_response_entity.dart';
 import 'package:chaty/features/auth/domain/repositories/auth_repository.dart';
-import 'package:chaty/features/auth/presentation/bloc/cubit/login_cubit.dart';
 import 'package:dartz/dartz.dart';
 import '../../../../core/network/network_info.dart';
 import '../datasources/auth_local_datasource.dart';

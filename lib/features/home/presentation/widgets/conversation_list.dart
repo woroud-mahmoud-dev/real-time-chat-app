@@ -1,86 +1,96 @@
-import 'package:flutter/material.dart';
+import 'package:chaty/features/home/domain/entities/all_active_users_entity.dart';
 import 'package:get/route_manager.dart';
 
+import '../../../chat/presentation/pages/chat_screen.dart';
+import '../../domain/entities/all_conversataion.dart';
+import 'package:flutter/material.dart';
 
-class ConversationList extends StatefulWidget {
-  String name;
-  String messageText;
-  String imageUrl;
-  String time;
-  bool isMessageRead;
-  ConversationList(
-      {super.key,
-      required this.name,
-      required this.messageText,
-      required this.imageUrl,
-      required this.time,
-      required this.isMessageRead});
-  @override
-  _ConversationListState createState() => _ConversationListState();
-}
+class ConversationList extends StatelessWidget {
+  final List<Conversation> conversations;
 
-class _ConversationListState extends State<ConversationList> {
+  const ConversationList({
+    super.key,
+    required this.conversations,
+  });
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        // Get.to(() =>  ChatScreen());
-      },
-      child: Container(
-        padding:
-            const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
-        child: Row(
-          children: <Widget>[
-            Expanded(
+    if (conversations.isEmpty) {
+      return const Expanded(child: Text('No Conversation yet!'));
+    } else {
+      return ListView.builder(
+        itemCount: conversations.length,
+        itemBuilder: ((context, index) {
+          return GestureDetector(
+            onTap: () {
+              Get.to(() => ChatScreen(
+                  chatId: conversations[index].id,
+                  user: ActiveUser(
+                    isChatExist: true,
+                    chatId: conversations[index].id,
+                    email: conversations[index].userTwo.name,
+                    emailCode: conversations[index].userTwo.name,
+                    id: conversations[index].userTwo.id,
+                    image: conversations[index].userTwo.name,
+                    name: conversations[index].userTwo.name,
+                    phone: conversations[index].userTwo.phone,
+                  )));
+            },
+            child: Container(
+              padding: const EdgeInsets.only(
+                  left: 16, right: 16, top: 10, bottom: 10),
               child: Row(
                 children: <Widget>[
-                  CircleAvatar(
-                    backgroundImage: NetworkImage(widget.imageUrl),
-                    maxRadius: 30,
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
                   Expanded(
-                    child: Container(
-                      color: Colors.transparent,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            widget.name,
-                            style: const TextStyle(fontSize: 16),
+                    child: Row(
+                      children: <Widget>[
+                        const CircleAvatar(
+                          backgroundImage: NetworkImage(
+                              "https://th.bing.com/th/id/OIP.byenSyw81CvjeS10wk49sgHaET?w=289&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"),
+                          maxRadius: 30,
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Expanded(
+                          child: Container(
+                            color: Colors.transparent,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  conversations[index].userTwo.name,
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                const SizedBox(
+                                  height: 6,
+                                ),
+                                Text(
+                                  conversations[index].messages.first.message,
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.grey.shade600,
+                                      fontWeight: FontWeight.normal),
+                                ),
+                              ],
+                            ),
                           ),
-                          const SizedBox(
-                            height: 6,
-                          ),
-                          Text(
-                            widget.messageText,
-                            style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.grey.shade600,
-                                fontWeight: widget.isMessageRead
-                                    ? FontWeight.bold
-                                    : FontWeight.normal),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
+                  // Text(
+                  //   time,
+                  //   style: TextStyle(
+                  //       fontSize: 12,
+                  //       fontWeight:
+                  //           isMessageRead ? FontWeight.bold : FontWeight.normal),
+                  // ),
                 ],
               ),
             ),
-            Text(
-              widget.time,
-              style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: widget.isMessageRead
-                      ? FontWeight.bold
-                      : FontWeight.normal),
-            ),
-          ],
-        ),
-      ),
-    );
+          );
+        }),
+      );
+    }
   }
 }

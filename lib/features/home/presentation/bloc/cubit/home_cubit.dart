@@ -35,13 +35,8 @@ class HomeCubit extends Cubit<HomeState> {
     emit(const HomeState.loading());
     final response = await getUserChats();
     response.fold((l) {
-      if (l is UnAuthraizedFailure) {
-        emit(const HomeState.error(''));
-      } else {
-        emit(const HomeState.error(''));
-      }
+      emit(const HomeState.error(''));
     }, (r) {
-      print('ssssssssssssssssssssssssss');
       emit(HomeState.getChatsSuccess(r));
     });
   }

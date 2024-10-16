@@ -1,3 +1,5 @@
+import 'package:chaty/core/services/local/cache_helper.dart';
+import 'package:chaty/core/utils/shared_pref_const.dart';
 import 'package:chaty/features/auth/presentation/widgets/otp_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,13 +19,14 @@ class _ActiveAccountScreenState extends State<ActiveAccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Enter Code To Active Account'),
+        title: Text(
+            'Enter ${CacheHelper.getData(key: SharedPrefConst.activeCode)} To Active Account'),
       ),
       body: BlocProvider(
         create: (context) => getIt<ActiveAccountCubit>(),
-        child: Container(
+        child: const SizedBox(
           width: double.infinity,
-          child: const Column(
+          child: Column(
             children: [
               OtpWidget(
                 isCodeFalse: false,

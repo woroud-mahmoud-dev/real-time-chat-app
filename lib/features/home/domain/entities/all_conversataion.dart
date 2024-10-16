@@ -25,7 +25,8 @@ class AllConversationsResponse {
       AllConversationsResponse(
         isSuccess: json["isSuccess"],
         message: json["message"],
-        data: List<Conversation>.from(json["data"].map((x) => Conversation.fromJson(x))),
+        data: List<Conversation>.from(
+            json["data"].map((x) => Conversation.fromJson(x))),
         status: json["status"],
         accessToken: json["access_token"],
       );
@@ -122,8 +123,6 @@ class User {
   final String email;
   final String phone;
   final dynamic image;
-  final dynamic emailCode;
-  final DateTime emailVerifiedAt;
 
   User({
     required this.id,
@@ -131,8 +130,6 @@ class User {
     required this.email,
     required this.phone,
     required this.image,
-    required this.emailCode,
-    required this.emailVerifiedAt,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => User(
@@ -141,8 +138,6 @@ class User {
         email: json["email"],
         phone: json["phone"],
         image: json["image"],
-        emailCode: json["email_code"],
-        emailVerifiedAt: DateTime.parse(json["email_verified_at"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -151,8 +146,6 @@ class User {
         "email": email,
         "phone": phone,
         "image": image,
-        "email_code": emailCode,
-        "email_verified_at": emailVerifiedAt.toIso8601String(),
       };
 }
 

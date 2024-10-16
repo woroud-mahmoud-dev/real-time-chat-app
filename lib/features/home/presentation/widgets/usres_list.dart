@@ -1,3 +1,4 @@
+import 'package:chaty/core/utils/utils.dart';
 import 'package:chaty/features/chat/presentation/pages/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -7,7 +8,7 @@ import '../../domain/entities/all_active_users_entity.dart';
 class ActiveUsresList extends StatefulWidget {
   final List<ActiveUser> activeUsres;
 
-  ActiveUsresList({
+  const ActiveUsresList({
     super.key,
     required this.activeUsres,
   });
@@ -27,6 +28,7 @@ class _ActiveUsresListState extends State<ActiveUsresList> {
         return GestureDetector(
           onTap: () {
             Get.to(() => ChatScreen(
+                  chatId: widget.activeUsres[index].chatId,
                   user: widget.activeUsres[index],
                 ));
           },
@@ -38,11 +40,16 @@ class _ActiveUsresListState extends State<ActiveUsresList> {
                 Expanded(
                   child: Row(
                     children: <Widget>[
-                      CircleAvatar(
-                        backgroundImage:
-                            NetworkImage(widget.activeUsres[index].image ?? ""),
-                        maxRadius: 30,
+                      const Icon(
+                        Icons.account_circle_rounded,
+                        color: AppColors.blueGreenMain,
+                        size: 44,
                       ),
+                      // CircleAvatar(
+                      //   backgroundImage:
+                      //       NetworkImage(widget.activeUsres[index].image ?? "https://th.bing.com/th/id/OIP.Bx9DQIvKlnPzcOBcncg40gHaJ4?w=187&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"),
+                      //   maxRadius: 30,
+                      // ),
                       const SizedBox(
                         width: 16,
                       ),

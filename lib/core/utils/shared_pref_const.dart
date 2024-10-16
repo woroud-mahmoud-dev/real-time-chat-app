@@ -6,6 +6,7 @@ class SharedPrefConst {
   static const String zoorPhoneNumber = 'zoorPhoneNumber';
   static const String zoorPhoneNumberImage = 'zoorPhoneNumberImage';
   static const String activeNotify = 'activeNotify';
+  static const String activeCode = 'activeCode';
   static const String user = 'user';
   static const String signInImage = 'signInImage';
   static const String signUpImage = 'signUpImage';

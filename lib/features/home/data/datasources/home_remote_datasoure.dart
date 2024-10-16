@@ -21,6 +21,7 @@ class HomeRemotDataSourceImpl implements HomeRemotDataSource {
   @override
   Future<AllConversationsResponse> getAllChats() async {
     try {
+      print(CacheHelper.getData(key: SharedPrefConst.apiToken).toString());
       Map<String, String> header = {
         "Accept": "application/json",
         "Content-Type": "application/json",

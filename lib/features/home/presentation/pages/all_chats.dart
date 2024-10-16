@@ -38,27 +38,12 @@ class AllCahtsTap extends StatelessWidget {
                   getChatsSuccess: (allConversations) {
                     final List<Conversation> conversations =
                         allConversations.data;
-                    print(conversations.length);
-                    return Expanded(
-                      child: ListView.builder(
-                        itemCount: conversations.length,
-                        shrinkWrap: true,
-                        padding: const EdgeInsets.only(top: 16),
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          return ConversationList(
-                            name: conversations[index].userTwo.name ?? "",
-                            messageText:
-                                conversations[index].messages.first.message ??
-                                    "",
-                            imageUrl: conversations[index].userOne.image ?? "",
-                            time: "",
-                            isMessageRead:
-                                (index == 0 || index == 3) ? true : false,
-                          );
-                        },
-                      ),
-                    );
+                    
+                      return Expanded(
+                          child: ConversationList(
+                        conversations: conversations,
+                      ));
+                    
                   },
                   orElse: () => const SizedBox.shrink(),
                 );

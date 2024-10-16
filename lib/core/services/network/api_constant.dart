@@ -11,6 +11,7 @@ class ApiConstants {
   static const String allActiveUeseres = "/auth/users";
   static const String sendMessageOrStartChat = "/chat/send-message";
   static const String allConversations = "/chat/fetchconversations";
+  static const String getAllMessage = "/chat/getmessages";
 }
 
 class ApiErrors {
