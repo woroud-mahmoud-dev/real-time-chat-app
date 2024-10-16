@@ -106,29 +106,26 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         body: BlocConsumer<UserChatsCubit, UserChatsState>(
           listener: (context, state) {
-            state.maybeWhen(
-                orElse: () {
-                  EasyLoading.dismiss();
-                  scrollToEnd();
-                },
-                getAllMessagesSucees: () {
-                  EasyLoading.dismiss();
-                  context.read<UserChatsCubit>().messageController.clear();
-                  scrollToEnd();
-                },
-                loading: () => EasyLoading.show(),
+            state.maybeWhen(orElse: () {
+              EasyLoading.dismiss();
+              scrollToEnd();
+            }, getAllMessagesSucees: () {
+              EasyLoading.dismiss();
+              context.read<UserChatsCubit>().messageController.clear();
+              scrollToEnd();
+            },
+                //    loading: () => EasyLoading.show(),
                 lestenSuccess: () {
-                  EasyLoading.dismiss();
-                  scrollToEnd();
-                  context.read<UserChatsCubit>().messageController.clear();
-                },
-                sendMessageSuccess: (re) {
-                  scrollToEnd();
-                  EasyLoading.dismiss();
-                  EasyLoading.showSuccess("Send Message Done");
+              EasyLoading.dismiss();
+              scrollToEnd();
+              context.read<UserChatsCubit>().messageController.clear();
+            }, sendMessageSuccess: (re) {
+              scrollToEnd();
+              // EasyLoading.dismiss();
+              // EasyLoading.showSuccess("Send Message Done");
 
-                  context.read<UserChatsCubit>().messageController.clear();
-                });
+              context.read<UserChatsCubit>().messageController.clear();
+            });
           },
           builder: (context, state) {
             return Stack(
@@ -146,10 +143,10 @@ class _ChatScreenState extends State<ChatScreen> {
                         alignment: (context
                                     .read<UserChatsCubit>()
                                     .messages[index]
-                                    .userId !=
+                                    .userId ==
                                 CacheHelper.getData(
                                   key: SharedPrefConst.userId,
-                                )
+                                ).toString()
                             ? Alignment.topLeft
                             : Alignment.topRight),
                         child: Container(
@@ -161,7 +158,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                         .userId !=
                                     CacheHelper.getData(
                                       key: SharedPrefConst.userId,
-                                    )
+                                    ).toString()
                                 ? const Color.fromARGB(255, 219, 235, 242)
                                 : const Color.fromARGB(255, 144, 249, 242)),
                           ),

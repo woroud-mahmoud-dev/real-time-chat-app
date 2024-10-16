@@ -123,12 +123,12 @@ class UserChatsCubit extends Cubit<UserChatsState> {
       emit(const UserChatsState.error(''));
     }, (r) {
       conversationId = int.parse(r.data.conversationId);
-      if (isChatExistBefor) {
-        listenToChannel(chatId);
-      } else {
-        // Add the chat message to your messages list
-        messages.add(r.data);
-      }
+      // if (isChatExistBefor) {
+      //   listenToChannel(chatId);
+      // } else {
+      //   // Add the chat message to your messages list
+      //   messages.add(r.data);
+      // }
       listenToChannel(conversationId);
       isChatExistBefor = true;
       emit(const UserChatsState.getAllMessagesSucees());
