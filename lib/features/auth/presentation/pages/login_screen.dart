@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
       ),
       body: SafeArea(
           child: BlocProvider(
-        create: (context) => getIt<LoginCubit>(),
+        create: (context) => getIt<LoginCubit>()..getFcmToken(),
         child: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),

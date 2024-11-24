@@ -11,7 +11,6 @@ Future<void> homeInjection() async {
   // Bloc
   getIt.registerFactory(
       () => HomeCubit(getUserContacts: getIt(), getUserChats: getIt()));
-  ;
 
   // UseCases
   getIt.registerLazySingleton(() => GetAllChats(chatsRepo: getIt()));

@@ -3,8 +3,8 @@ import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
 class PusherClient {
   Future<PusherChannelsFlutter> initPusher(
       {required String pusherApiKey, required String cluster}) async {
-    final _pusher = PusherChannelsFlutter.getInstance();
-    await _pusher.init(
+    final pusher = PusherChannelsFlutter.getInstance();
+    await pusher.init(
       apiKey: pusherApiKey,
       cluster: cluster,
       onConnectionStateChange: onConnectionStateChange,
@@ -17,8 +17,8 @@ class PusherClient {
       onMemberRemoved: onMemberRemoved,
     );
 
-    _pusher.connect();
-    return _pusher;
+    pusher.connect();
+    return pusher;
   }
 
   void onError(String message, int? code, dynamic e) {

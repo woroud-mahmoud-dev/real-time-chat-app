@@ -43,7 +43,7 @@ class LoginForm extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            LoginListener(),
+            const LoginListener(),
             const Center(
               child: Icon(
                 Icons.chat_sharp,

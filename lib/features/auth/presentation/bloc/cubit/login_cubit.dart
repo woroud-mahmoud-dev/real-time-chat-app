@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/error/failuers.dart';
 import '../../../../../core/services/local/cache_helper.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 part 'login_state.dart';
 part 'login_cubit.freezed.dart';
@@ -41,7 +42,14 @@ class LoginCubit extends Cubit<LoginState> {
       emit(const LoginState.success());
     });
   }
+  String? fcmToken;
+  Future<void> getFcmToken() async {
+    // Get FCM token
+    String? token = await FirebaseMessaging.instance.getToken();
 
+    fcmToken = token;
+    print("FCM Token: $fcmToken"); // Print the FCM token in the console
+  }
   String _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
       case const (OfflineFailure):

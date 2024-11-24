@@ -54,7 +54,7 @@ class ChatRemotDataSourceImpl implements ChatRemotDataSource {
         "Authorization":
             "Bearer ${CacheHelper.getData(key: SharedPrefConst.apiToken).toString()}"
       };
-      print("${CacheHelper.getData(key: SharedPrefConst.apiToken).toString()}");
+      print(CacheHelper.getData(key: SharedPrefConst.apiToken).toString());
       final response = await dio.post(
         ApiConstants.apiBaseUrl + ApiConstants.getAllMessage,
         data: {"conversation_id": chatId},

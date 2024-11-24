@@ -23,7 +23,7 @@ class ProfileSceen extends StatelessWidget {
                 CacheHelper.clearData();
                 Get.offAll(() => const LoginScreen());
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.logout,
                 size: 66,
               )),

@@ -1,5 +1,4 @@
 import 'package:chaty/features/auth/presentation/bloc/cubit/login_cubit.dart';
-import 'package:chaty/features/auth/presentation/pages/active_account.dart';
 import 'package:chaty/features/home/presentation/pages/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +20,7 @@ class LoginListener extends StatelessWidget {
           },
           success: () {
             EasyLoading.dismiss();
-            Get.offAll(HomeScreen());
+            Get.offAll(const HomeScreen());
           },
           error: (error) {
             EasyLoading.showError(error);

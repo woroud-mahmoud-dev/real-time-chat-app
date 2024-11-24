@@ -4,7 +4,6 @@ import 'package:chaty/features/auth/data/models/user_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../core/error/execption.dart';
 
 abstract class AuthLocalDataSource {
   Future<UserModel> getCachedUserData();

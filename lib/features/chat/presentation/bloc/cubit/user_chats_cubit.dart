@@ -1,10 +1,8 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:chaty/core/services/pusher/pusher_client.dart';
 import 'package:chaty/features/chat/domain/entities/message.dart';
-import 'package:chaty/features/home/domain/entities/all_conversataion.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -87,7 +85,7 @@ class UserChatsCubit extends Cubit<UserChatsState> {
     if (chatId != null) {
       isChatExistBefor = true;
       try {
-        final response = await getChatMessages(chatId!);
+        final response = await getChatMessages(chatId);
         emit(const UserChatsState.loading());
         response.fold((l) {
           emit(const UserChatsState.error(''));

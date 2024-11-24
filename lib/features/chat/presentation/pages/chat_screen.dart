@@ -11,7 +11,7 @@ import '../bloc/cubit/user_chats_cubit.dart';
 class ChatScreen extends StatefulWidget {
   final ActiveUser user;
   final int? chatId;
-  ChatScreen({super.key, required this.user, this.chatId});
+  const ChatScreen({super.key, required this.user, this.chatId});
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();

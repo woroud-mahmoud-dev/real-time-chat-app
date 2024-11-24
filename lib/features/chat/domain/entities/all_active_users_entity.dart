@@ -3,8 +3,6 @@
 //     final allActiveUsersResponse = allActiveUsersResponseFromJson(jsonString);
 
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
-import 'dart:convert';
 
 class AllActiveUsersResponseEntity extends Equatable {
   final String isSuccess;

@@ -9,9 +9,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'core/di/dependency_injection.dart';
-
-void main() async {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';import 'package:firebase_messaging/firebase_messaging.dart';
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   await setupGetIt();
   await CacheHelper.init();
   await dotenv.load();

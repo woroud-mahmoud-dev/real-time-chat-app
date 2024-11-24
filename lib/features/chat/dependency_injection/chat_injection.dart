@@ -1,10 +1,8 @@
 import 'package:chaty/features/chat/data/repositories/chat_repo_impl.dart';
 import 'package:chaty/features/chat/domain/repositories/chat_repository.dart';
 import 'package:chaty/features/chat/domain/use_cases/get_chat_messages.dart';
-import 'package:chaty/features/home/data/repositories/home_repo_impl.dart';
 
 import '../../../core/di/dependency_injection.dart';
-import '../../home/domain/use_cases/get_all_active_users.dart';
 import '../data/datasources/chat_local_datasource.dart';
 import '../data/datasources/chat_remote_datasoure.dart';
 

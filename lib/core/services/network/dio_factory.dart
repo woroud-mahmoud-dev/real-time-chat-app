@@ -33,7 +33,7 @@ class DioFactory {
         // Check for unauthorized response status code
         if (response.statusCode == 401) {
           // Navigate to the login screen using
-          Get.to(() => LoginScreen());
+          Get.to(() => const LoginScreen());
         }
         return handler.next(response);
       },

@@ -91,7 +91,7 @@ class CustomTextField extends StatelessWidget {
                         fontWeight: FontWeight.w300,
                         fontSize: 12.sp,
                         height: 0),
-                    fillColor: Color.fromRGBO(219, 221, 221, 1),
+                    fillColor: const Color.fromRGBO(219, 221, 221, 1),
                     enabledBorder: InputBorders.enabled,
                     errorBorder: InputBorders.error,
                     focusedErrorBorder: InputBorders.error,

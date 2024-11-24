@@ -32,8 +32,8 @@ class AllActiveUsers extends StatelessWidget {
               builder: (context, state) {
                 return state.maybeWhen(
                   error: (e) => const SizedBox.shrink(),
-                  loading: () => Expanded(
-                    child: const Center(
+                  loading: () => const Expanded(
+                    child: Center(
                       child: CircularProgressIndicator(),
                     ),
                   ),

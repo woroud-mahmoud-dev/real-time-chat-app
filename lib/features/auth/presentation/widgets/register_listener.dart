@@ -21,7 +21,7 @@ class RegisterListener extends StatelessWidget {
           success: () {
             EasyLoading.dismiss();
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => ActiveAccountScreen()));
+                .push(MaterialPageRoute(builder: (_) => const ActiveAccountScreen()));
           },
           error: (error) {
             EasyLoading.showError(error);
