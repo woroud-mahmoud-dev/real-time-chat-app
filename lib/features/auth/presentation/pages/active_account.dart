@@ -19,8 +19,8 @@ class _ActiveAccountScreenState extends State<ActiveAccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-            'Enter ${CacheHelper.getData(key: SharedPrefConst.activeCode)} To Active Account'),
+        title: const Text(
+            'Enter the code to activate your account'),
       ),
       body: BlocProvider(
         create: (context) => getIt<ActiveAccountCubit>(),

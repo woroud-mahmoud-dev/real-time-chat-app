@@ -1,6 +1,6 @@
 class ApiConstants {
   static const String apiBaseUrl =
-      "https://chatapp.royaltrust.ae.org/public/api";
+      "https://chatapp.althikaalmalakia.com/public/api";
 
   //<<== AUTHETICATION ==>>
   static const String login = "/auth/login";

@@ -71,7 +71,7 @@ class AuthRepoImpl implements AuthRepo {
   Future<Either<Failure, Unit>> resendActiveCode() async {
     if (await networkInfo.isConnected) {
       try {
-        final response = await authRemoteDataSource.resendActiveCode();
+        // final response = await authRemoteDataSource.resendActiveCode();
         return const Right(unit);
       } on ServerException {
         return Left(ServerFailure());

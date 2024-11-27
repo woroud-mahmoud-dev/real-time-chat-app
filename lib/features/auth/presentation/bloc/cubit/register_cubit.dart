@@ -33,7 +33,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     userResponse.fold((l) => emit(RegisterState.error(_mapFailureToMessage(l))),
         (r) {
       CacheHelper.saveData(
-          key: SharedPrefConst.apiToken, value: r.accessToken ?? "");
+          key: SharedPrefConst.apiToken, value: r.accessToken );
       emit(const RegisterState.success());
     });
   }
